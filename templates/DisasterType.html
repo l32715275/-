@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DisasterType</title>
+        <style>
+        .st {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div style="position:fixed; z-index: -1; width: 100%; height: 100%; left: 0px; top:0px;">
+<img src="/static/images/background2.jpg" width="100%" height="100%" /></div>
+<table border="1" align="center" style="color: #f8dada">
+    <center style="color: aquamarine"> 灾情信息分类 </center>
+    <br><br>
+    <thead >
+    <tr>
+
+        <th >大类</th><th >大类代码</th><th >子类</th><th >子类代码</th><th>数据库表</th>
+
+    </tr>
+    </thead>
+ <!--                            -->
+    <tr >
+
+        <td rowspan="2">  人员伤亡及失踪  </td><td rowspan="2">1</td>
+        <td>死亡 </td><td >11</td>
+        <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >DeathStatistics</a> </td>
+
+    </tr>
+    <tr><td>失踪</td><td>13</td><td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >MissingStatistics </a></td>
+    </tr>
+ <!--                                -->
+
+     <tr >
+
+        <td rowspan="2">  房屋破坏   </td><td rowspan="2">2</td>
+        <td>土木 </td><td >21</td>
+         <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >CivilStructure </a> </td>
+
+    </tr>
+    <tr><td>砖混</td><td>23</td>
+        <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >MasonryStructure</a> </td>
+    </tr>
+
+ <!--                                         -->
+     <tr >
+
+        <td rowspan="2">  生命线工程灾情   </td><td rowspan="2">3</td>
+        <td>交通 </td><td >31</td>
+         <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >  TrafficDisaster </a> </td>
+
+    </tr>
+    <tr><td>通信</td><td>36</td>
+        <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >CommDisaster</a></td>
+    </tr>
+
+
+
+
+</table>
+</body>
+</html>

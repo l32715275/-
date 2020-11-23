@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>MSHD</title>
+    <!-- loader-->
+    <link href="/static/css/pace.min.css" rel="stylesheet"/>
+    <script src="/static/js/pace.min.js"></script>
+    <!--favicon-->
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="/static/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+    <!-- simplebar CSS-->
+    <link href="/static/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="/static/css/animate.css" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="/static/css/icons.css" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="/static/css/sidebar-menu.css" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="/static/css/app-style.css" rel="stylesheet"/>
+
+</head>
+<body class="bg-theme bg-theme1">
+
+
+<!-- Start wrapper-->
+<div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+        <div class="brand-logo">
+            <a href="index.html">
+
+                <h5 class="logo-text">MSHD</h5>
+            </a>
+        </div>
+        <ul class="sidebar-menu do-nicescrol">
+
+            <li><a href="/index/"> <em class="zmdi zmdi-view-dashboard"></em> <span>数据展示</span> </a></li>
+            <li><a href="/DisasterType/"> <em class="zmdi zmdi-format-list-bulleted"></em> <span>数据管理</span></a></li>
+            <li><a href="/tables/"><em class="zmdi zmdi-grid"></em> <span>数据查询</span></a></li>
+            <li></li>
+        </ul>
+
+    </div>
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+
+            <!--Start Dashboard Content-->
+
+            <div class="card mt-3">
+                <div class="card-content">
+                    <div class="row row-group m-0">
+                        <div class="col-12 col-lg-6 col-xl-3 border-light">
+                            <div class="card-body">
+                                <h5 class="text-white mb-0">9526 </h5>
+                                <div class="progress my-3" style="height:3px;">
+                                    <div class="progress-bar" style="width:55%"></div>
+                                </div>
+                                <p class="mb-0 text-white small-font">受灾地区统计</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-3 border-light">
+                            <div class="card-body">
+                                <h5 class="text-white mb-0">8323 </h5>
+                                <div class="progress my-3" style="height:3px;">
+                                    <div class="progress-bar" style="width:55%"></div>
+                                </div>
+                                <p class="mb-0 text-white small-font">通信受损地区统计</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-3 border-light">
+                            <div class="card-body">
+                                <h5 class="text-white mb-0">6200 </h5>
+                                <div class="progress my-3" style="height:3px;">
+                                    <div class="progress-bar" style="width:55%"></div>
+                                </div>
+                                <p class="mb-0 text-white small-font">受灾人数统计</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-3 border-light">
+                            <div class="card-body">
+                                <h5 class="text-white mb-0">563</h5>
+                                <div class="progress my-3" style="height:3px;">
+                                    <div class="progress-bar" style="width:55%"></div>
+                                </div>
+                                <p class="mb-0 text-white small-font">交通受损统计</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-lg-8 col-xl-8">
+                    <div class="card">
+                        <div class="card-header">伤亡人数统计
+                            <div class="card-action">
+                                <div class="dropdown">
+                                    <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret"
+                                       data-toggle="dropdown">
+                                        <i class="icon-options"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="javascript:void();">Action</a>
+                                        <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                        <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><em class="fa fa-circle mr-2 text-white"></em>受伤</li>
+                                <li class="list-inline-item"><em class="fa fa-circle mr-2 text-light"></em>死亡</li>
+                            </ul>
+                            <div class="chart-container-1">
+                                <canvas id="chart1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <div class="card-header">房屋受损分布
+                            <div class="card-action">
+                                <div class="dropdown">
+                                    <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret"
+                                       data-toggle="dropdown">
+                                        <i class="icon-options"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="javascript:void();">Action</a>
+                                        <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                        <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container-2">
+                                <canvas id="chart2"></canvas>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <tbody>
+                                <tr>
+                                    <td><em class="fa fa-circle text-white mr-2"></em>基本完好面积</td>
+                                    <td>5856</td>
+                                    <td>+55%</td>
+                                </tr>
+                                <tr>
+                                    <td><em class="fa fa-circle text-light-1 mr-2"></em>破坏面积</td>
+                                    <td>2602</td>
+                                    <td>+25%</td>
+                                </tr>
+                                <tr>
+                                    <td><em class="fa fa-circle text-light-2 mr-2"></em>毁坏面积</td>
+                                    <td>1802</td>
+                                    <td>+15%</td>
+                                </tr>
+                                <tr>
+                                    <td><em class="fa fa-circle text-light-3 mr-2"></em>其他</td>
+                                    <td>1105</td>
+                                    <td>+5%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!--End Row-->
+
+            <div class="row">
+                <div class="col-12 col-lg-12">
+                    <div class="card"></div>
+                </div>
+            </div><!--End Row-->
+
+            <!--End Dashboard Content-->
+
+            <!--start overlay-->
+            <div class="overlay toggle-menu"></div>
+            <!--end overlay-->
+
+        </div>
+        <!-- End container-fluid-->
+
+    </div><!--End content-wrapper-->
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+</div><!--End wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+
+<!-- simplebar js -->
+<script src="/static/plugins/simplebar/js/simplebar.js"></script>
+<!-- sidebar-menu js -->
+<script src="/static/js/sidebar-menu.js"></script>
+<!-- loader scripts -->
+<script src="/static/js/jquery.loading-indicator.js"></script>
+<!-- Custom scripts -->
+<script src="/static/js/app-script.js"></script>
+<!-- Chart js -->
+
+<script src="/static/plugins/Chart.js/Chart.min.js"></script>
+
+<!-- Index js -->
+<script src="/static/js/index.js"></script>
+
+
+</body>
+</html>

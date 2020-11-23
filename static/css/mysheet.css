@@ -1,0 +1,15 @@
+.ui_button {
+                 display: inline-block;
+                 line-height: 45px;
+                 padding: 0 70px;
+                 color: #FFFFFF;
+                 font-family: "微软雅黑";
+                 font-weight: 700;
+                 cursor: pointer;
+             }
+.ui_button_primary {
+                 background-color: #FF6600;
+             }
+             label.ui_button:hover {
+                 background-color: #d46216;
+             }

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        html { height:100% }
+        body { height:100%; margin:0px; padding:0px }
+h2,p{font-size:13px;margin:0;}
+p{margin-top:10px;line-height:18px;}
+    </style>
+    <title>全国灾情地图</title>
+    <script language="javascript" src="http://webapi.amap.com/maps?v=1.1&key=54438b9e4acb36c6f1814b77b640222b"></script>
+    <script language="javascript">
+        var mapObj,toolbar,overview,scale;
+        function mapInit()
+        {
+            var opt = {
+                level:5,//设置地图缩放级别
+                center:new AMap.LngLat(110.969032,31.866261),//设置地图中心点
+                doubleClickZoom:true,//双击放大地图
+                scrollWheel:true//鼠标滚轮缩放地图
+            }
+            mapObj = new AMap.Map("iCenter",opt);
+            mapObj.plugin(["AMap.ToolBar","AMap.OverView","AMap.Scale"],function()
+            {
+                toolbar = new AMap.ToolBar();
+                toolbar.autoPosition=false; //加载工具条
+                mapObj.addControl(toolbar);
+                overview = new AMap.OverView(); //加载鹰眼
+                mapObj.addControl(overview);
+                scale = new AMap.Scale(); //加载比例尺
+                mapObj.addControl(scale);
+            });
+            var data=[{position:{x:121.13333,y:32.50000},content:'<h2><a href="http://news.163.com/13/0709/18/93C35A8A0001124J.html" target="_blank">上海</a></h2><p></p>'},
+{position:{x:102.774254,y:32.091168},content:'<h2><a href="http://news.163.com/13/0715/14/93R3GK0U0001124J.html" target="_blank">四川（死亡68人、失踪179人）</a></h2><p>68人死亡，179人失踪，28.6万人紧急转移安置。</p>'},
+{position:{x:114.202148,y:31.471804},content:'<h2><a href="http://news.163.com/13/0709/18/93C35A8A0001124J.html" target="_blank">湖北（死亡4人）</a></h2><p></p>'},
+{position:{x:117.202148,y:32.971804},content:'<h2><a href="http://news.163.com/13/0709/18/93C35A8A0001124J.html" target="_blank">安徽（死亡3人）</a></h2><p></p>'},
+{position:{x:116.39023,y:39.921012},content:'<h2><a href="http://news.163.com/13/0709/18/93C35A8A0001124J.html" target="_blank">北京（死亡1人）</a></h2><p></p>'},
+{position:{x:116.80023,y:39.601012},content:'<h2><a href="http://news.163.com/13/0709/18/93C35A8A0001124J.html" target="_blank">天津（死亡3人）</a></h2><p></p>'}           ];
+            for(var i= 0,j=1,len=data.length;i<len;i++){
+                var infoWin=new AMap.InfoWindow({
+                    content:data[i].content
+                });
+                var marker = new AMap.Marker({
+                    id:i,
+                    position: new AMap.LngLat(data[i].position.x, data[i].position.y)
+                });// 自定义构造AMap.Marker对象
+                marker.ifw=infoWin;
+                mapObj.addOverlays(marker); //加载覆盖物
+                if(i== j-1){
+                                marker.ifw.open(mapObj, marker.getPosition());
+                };
+                mapObj.bind(marker,'click', function(e){
+                    this.obj.ifw.open(mapObj, this.obj.getPosition());
+                });
+            }
+console.log(marker);
+        }
+
+
+
+    </script>
+</head>
+<body onload="mapInit();">
+<div id="iCenter" style="width:960px; height:300px;margin: 0 auto;"></div>
+<div style="position:fixed; z-index: -1; width: 100%; height: 100%; left: 0px; top:0px;">
+<img src="/static/images/background3.jpg" width="100%" height="100%" /></div>
+<table border="1" align="center" style="color: #f8dada">
+    <center style="color: aquamarine"> 数据表 </center>
+<br><br>
+
+    <thead >
+    <tr>
+        {%  for col_name in col_name %}
+        <th >{{ col_name }}</th>
+         {% endfor %}
+    </tr>
+    </thead>
+    {%  for data1 in data %}
+    <tr>
+        {%  for data2 in data1 %}
+        <td>{{  data2  }}</td>
+
+        {% endfor %}
+        <td><a href={% url 'delete' delete_id=data1.0 id=id %} >删除</a></td>
+    </tr>
+    {%  endfor %}
+    <tr>
+        <form action={% url 'add' id=id %} method="post">
+            {% csrf_token %}
+            {%  for data1 in data.0 %}
+            <td><input type="text" name="add_data" style="width:80px"/> </td>
+
+
+
+
+            {%  endfor %}
+            <td><input type="submit" value="添加数据"></td>
+        </form>
+    </tr>
+</table>
+
+
+</body>
+</html>

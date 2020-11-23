@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>MSHD</title>
+  <!-- loader-->
+  <link href="/static/css/pace.min.css" rel="stylesheet"/>
+  <script src="/static/js/pace.min.js"></script>
+  <!--favicon-->
+  <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+  <!-- simplebar CSS-->
+  <link href="/static/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="/static/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="/static/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="/static/css/sidebar-menu.css" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="/static/css/app-style.css" rel="stylesheet"/>
+
+
+</head>
+
+<body class="bg-theme bg-theme1">
+
+<!-- start loader -->
+   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+   <!-- end loader -->
+
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+ <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="index.html">
+       <h5 class="logo-text">MSHD</h5>
+     </a>
+   </div>
+   <ul class="sidebar-menu do-nicescrol">
+      <li>
+        <a href="/index/">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>数据展示</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/DisasterType/">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>数据管理</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/tables/">
+          <i class="zmdi zmdi-grid"></i> <span>数据查询</span>
+        </a>
+      </li>
+
+    </ul>
+
+   </div>
+   <!--End sidebar-wrapper-->
+<div class="clearfix"></div>
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">灾情上报</div>
+           <hr>
+            <form>
+
+
+           <div class="form-group">
+            <label for="input-5">上传数据</label>
+
+               <form action="/index/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="file"  class="form-control" id="input-5" placeholder="以jason格式"></div>
+
+                   <div class="form-group"><button type="submit" class="btn btn-light px-5">上传数据</button></div>
+                </form>
+          </div>
+          </form>
+         </div>
+         </div>
+      </div>
+
+
+    </div><!--End Row-->
+
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+
+   </div><!--End content-wrapper-->
+
+     <div class="content-wrapper">
+    <div class="container-fluid">
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">增删数据</div>
+           <hr>
+            <form>
+
+
+           <div class="form-group">
+               <table border="1" align="center" style="color: #f8dada">
+                <center style="color: aquamarine"> 灾情信息分类 </center>
+                <br><br>
+                <thead >
+                <tr>
+
+                    <th >大类</th><th >大类代码</th><th >子类</th><th >子类代码</th><th>数据库表</th>
+
+                </tr>
+                </thead>
+             <!--                            -->
+                <tr >
+
+                    <td rowspan="2">  人员伤亡及失踪  </td><td rowspan="2">1</td>
+                    <td>死亡 </td><td >11</td>
+                    <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >DeathStatistics</a> </td>
+
+                </tr>
+                <tr><td>失踪</td><td>13</td><td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >MissingStatistics </a></td>
+                </tr>
+             <!--                                -->
+
+                 <tr >
+
+                    <td rowspan="2">  房屋破坏   </td><td rowspan="2">2</td>
+                    <td>土木 </td><td >21</td>
+                     <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >CivilStructure </a> </td>
+
+                </tr>
+                <tr><td>砖混</td><td>23</td>
+                    <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >MasonryStructure</a> </td>
+                </tr>
+
+             <!--                                         -->
+                 <tr >
+
+                    <td rowspan="2">  生命线工程灾情   </td><td rowspan="2">3</td>
+                    <td>交通 </td><td >31</td>
+                     <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >  TrafficDisaster </a> </td>
+
+                </tr>
+                <tr><td>通信</td><td>36</td>
+                    <td><a style="color: #3aa610" class="st" href={% url 'sheet' id=336 %} >CommDisaster</a></td>
+                </tr>
+
+
+
+
+            </table>
+          </div>
+          </form>
+         </div>
+         </div>
+      </div>
+
+
+    </div><!--End Row-->
+
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+
+   </div><!--End content-wrapper-->
+
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+
+
+	<!--start color switcher-->
+   <div class="right-sidebar">
+    <div class="switcher-icon">
+      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+    </div>
+    <div class="right-sidebar-content">
+
+      <p class="mb-0">Gaussion Texture</p>
+      <hr>
+
+      <ul class="switcher">
+        <li id="theme1"></li>
+        <li id="theme2"></li>
+        <li id="theme3"></li>
+        <li id="theme4"></li>
+        <li id="theme5"></li>
+        <li id="theme6"></li>
+      </ul>
+
+      <p class="mb-0">Gradient Background</p>
+      <hr>
+
+      <ul class="switcher">
+        <li id="theme7"></li>
+        <li id="theme8"></li>
+        <li id="theme9"></li>
+        <li id="theme10"></li>
+        <li id="theme11"></li>
+        <li id="theme12"></li>
+		<li id="theme13"></li>
+        <li id="theme14"></li>
+        <li id="theme15"></li>
+      </ul>
+
+     </div>
+   </div>
+  <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/popper.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+
+ <!-- simplebar js -->
+  <script src="/static/plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="/static/js/sidebar-menu.js"></script>
+
+  <!-- Custom scripts -->
+  <script src="/static/js/app-script.js"></script>
+	
+</body>
+</html>
